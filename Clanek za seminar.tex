@@ -1,0 +1,116 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[slovene]{babel}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{eurosym}
+\usepackage{units}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{url}
+
+\usepackage{amsmath} %math
+\usepackage{amssymb} %simboli
+\usepackage{amsthm} %theorem
+\usepackage{indentfirst} %prvi odstavek
+
+\theoremstyle{plain}
+\newtheorem{izrek}{Izrek}
+
+\begin{document}
+\title{\textbf{Števili $e^2$ in $\pi^2$ sta iracionalni}}
+\author{Ema Češek}
+\date{}
+\maketitle
+\thispagestyle{empty} %ni oštevilčeno
+
+\begin{abstract}
+Na kratko o mojem članku.
+\end{abstract}
+
+\section*{Iracionalna števila}
+Na splošno o iracionalnosti števil, zgledi, malo zgodovine. Potem omejim na $e$ in $\pi$.
+
+\section*{Iracionalnost števila $e^2$}
+Liouville 1840, podobno za $e^4$
+
+\begin{izrek}
+Število $e^2$ je iracionalno.
+\end{izrek}
+
+\begin{proof}
+Izrek bomo dokazali s protislovjem. Predpostavimo, da je $e^2$ racionalno število. Torej ga lahko zapišemo v obliki
+\begin{equation*}
+e^2 = \frac{a}{b},
+\end{equation*}
+kjer je $a \in \mathbb{Z}$ in $b \in \mathbb{N}$. V naslednjem koraku enačbo preoblikujemo v 
+\begin{equation*}
+be = ae^{-1}
+\end{equation*}
+in na obeh straneh enačbe pomnožimo z $n!$, kjer je $n$ sodo število in $n \ge 0$. Dobimo
+
+\begin{equation}
+n!be = n!ae^{-1}.
+\label{eq:osnovna}
+\end{equation}
+
+Ker znamo funkcijo $e^x$ razviti v potenčno vrsto $e^x = \sum_{k=0}^{\infty}\frac{x^k}{k!}$, lahko $e$ in $e^{-1}$ zapišemo z vrstama
+\begin{align*}
+e &= 1+\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+\dots \\
+e^{-1}&= 1-\frac{1}{1!}+\frac{1}{2!}-\frac{1}{3!}+\dots 
+\end{align*}
+in ju vstavimo v enačbo \eqref{eq:osnovna}.
+
+Najprej si oglejmo, kaj dobimo na levi strani enačbe:
+\begin{align*}
+n!be &= n!b \bigg(1+\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+\dots \bigg) \\
+&=n!b \bigg(1+\frac{1}{1!}+\frac{1}{2!}+\dots+\frac{1}{n!}\bigg) + n!b \bigg( \frac{1}{(n+1)!}+\frac{1}{(n+2)!}+\frac{1}{(n+3)!}+\dots\bigg)\\
+&=n!b \bigg(1+\frac{1}{1!}+\frac{1}{2!}+\dots+\frac{1}{n!}\bigg) + b \bigg( \frac{1}{(n+1)}+\frac{1}{(n+1)(n+2)}+\frac{1}{(n+1)(n+2)(n+3)}+\dots\bigg)
+\end{align*}
+Vsoto smo razbili na dva dela. V prvem delu so členi, ki se pojavijo pred $\frac{1}{n!}$. Ker imajo vsi členi imenovalec manjši od $n!$, pri množenju z $n!$ dobimo cela števila. Torej bo prvi del predstavljal neko celo število. Drugi del, kjer smo vzeli vse nadaljne člene, smo že množili z $n!$. Ocenimo
+\begin{align*}
+\frac{b}{n+1} &< \bigg( \frac{b}{(n+1)}+\frac{b}{(n+1)(n+2)}+\frac{b}{(n+1)(n+2)(n+3)}+\dots\bigg) \\
+&< \bigg( \frac{b}{(n+1)}+\frac{b}{(n+1)^2}+\frac{b}{(n+1)^3}+\dots\bigg) \\
+&= \frac{b}{n+1} \bigg(1+\frac{1}{n+1}+\frac{1}{(n+1)^2}+ \dots\bigg) \\
+&= \frac{\frac{b}{n+1}}{1-\frac{1}{n+1}}\\
+&= \frac{b}{n}.
+\end{align*}
+Uporabili smo formulo za računanje vsote neskončne geometrijske vrste. Dobimo oceno, da je drugi del večji od $\frac{b}{n+1}$ in manjši od $\frac{b}{n}$. Za dovolj velik n, to zagotovo ne bo celo število.
+
+Podobno obravnavamo desno stran enačbe \eqref{eq:osnovna}:
+\begin{align*}
+n!ae^{-1} &= n!a \bigg(1-\frac{1}{1!}+\frac{1}{2!}-\frac{1}{3!}+\dots \bigg) \\
+&=n!a \bigg(\frac{1}{2!}+\dots+(-1)^n\frac{1}{n!}\bigg) + n!a (-1)^{n+1} \bigg( \frac{1}{(n+1)!}-\frac{1}{(n+2)!}+\frac{1}{(n+3)!}-\dots\bigg)\\
+&=n!a \bigg(\frac{1}{2!}+\dots+(-1)^n\frac{1}{n!}\bigg) + a(-1)^{n+1} \bigg( \frac{1}{(n+1)}-\frac{1}{(n+1)(n+2)}+\dots\bigg)
+\end{align*}
+Prvi del bo znova neko celo število. Spomnimo, da smo na začetku predpostavili, da je $n$ sodo.Torej bo drugi del enak
+\begin{equation*}
+-a \bigg( \frac{1}{(n+1)}-\frac{1}{(n+1)(n+2)}+\frac{1}{(n+1)(n+2)(n+3)}+\dots\bigg).
+\end{equation*}
+Ocenimo, da je to večje od $-\frac{a}{n}$ in manjše od $-\frac{a}{n+1}$. Torej bi v enačbi \eqref{eq:osnovna} veljalo, da je leva stran malo večja od celega števila, desna stran pa malo manjša. Vendar enačaj v tem primeru ne velja. 
+\end{proof}
+
+Dokaz je bil povzet iz \cite{dokazi}. Splošneje velja naslednji izrek.
+
+\begin{izrek}
+Število $e^r$ je iracionalno za vsak $r\in\mathbb{Q}$ .
+\end{izrek}
+
+Izreka ne bomo dokazali. Dokaže se z uporabo idej, ki jih bomo navedli v dokazu iracionalnosti števila $\pi^2$.
+
+\section*{Iracionalnost števila $\pi^2$}
+
+\begin{izrek}
+Število $\pi^2$ je iracionalno.
+\end{izrek}
+\begin{proof}
+Tole bo dokaz. 
+\end{proof}
+Dokaz je bil povzet iz \cite{dokazi}.
+
+\bibliographystyle{plain}
+\bibliography{Literatura}
+
+
+\end{document}
