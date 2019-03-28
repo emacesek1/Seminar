@@ -1,0 +1,166 @@
+\documentclass{beamer}
+
+\usetheme{boxes}
+\usecolortheme{rose}
+\useinnertheme{circles}
+\useoutertheme{split}
+\setbeamertemplate{blocks}[rounded]
+
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+
+%next set colors - not needed
+\setbeamercolor{title}{fg=blue!70!black}
+%\setbeamercolor{frametitle}{fg=red!70!black}
+%\setbeamercolor{framesubtitle}{fg=green!30!black}
+%\setbeamercolor{author}{fg=green!50!black}
+%\setbeamercolor{institute}{fg=blue!50!black}
+
+\usepackage[slovene]{babel}
+\usepackage[OT2,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{colortbl}
+\usepackage[all]{xy}
+\usepackage{array}
+\usepackage{amsfonts}
+
+\newtheorem{izrek}{Izrek}
+\newtheorem{trditev}{Trditev}
+\newtheorem{definicija}{Definicija}
+\newcommand{\odvod}[1]{f^{({#1})}(x)}
+
+%\usepackage{pgfpages}
+%\setbeameroption{show notes on second screen=right}
+\setbeamercovered{invisible}
+
+\title{Števili $e^2$ in $\pi^2$ sta iracionalni}
+\author{Ema Češek}
+\institute{Seminar, FMF}
+\date{29. 3. 2019}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+
+\begin{definicija}
+ Realna števila, ki niso racionalna, t.j. $\mathbb{R}\backslash\mathbb{Q}$, imenujemo iracionalna števila.
+\end{definicija}
+
+\pause
+\vskip 1cm
+
+\begin{exampleblock}{Primeri}
+\begin{center}
+$\sqrt{2}$, $\sqrt{3}$, $\sqrt{5}$,... \\
+\vskip 0.5cm
+\pause
+$\sqrt{2} + \sqrt{3}$, $\sqrt{5} + \sqrt{3}$, $\sqrt{15}$, $\sqrt{6}$,...
+\vskip 0.5cm
+\pause
+$\sqrt{2}\pm 5$, $\frac{1}{\sqrt{3}}$, $-\frac{\sqrt{5}+\sqrt{3}}{7}$,...
+\end{center}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+\begin{definicija}
+Število $\alpha$ je algebraično, če obstaja neničeln polinom $f(x)=c_nx^n+\dots+c_1x+c$, kjer $c_i\in\mathbb{Z}$ in $f(\alpha)=0$. Če tak polinom ne obstaja, rečemo, da je število transcendentno.
+\end{definicija}
+\vskip1cm
+\pause
+
+\begin{exampleblock}{Primeri}
+\begin{center}
+$\sqrt{7}$, $\sqrt[3]{5}$, $\sqrt[5]{91}$,...
+\vskip 0.5cm
+$e$, $\pi$,...
+\vskip 0.5cm
+\end{center}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Število $e$}
+
+$e := \displaystyle \lim_{x\to \infty}\bigg(1+\frac{1}{x}\bigg)^x $ \\
+\vskip 0.5cm
+\quad $\displaystyle = \sum_{k=0}^{\infty}\frac{1}{k!}$
+\vskip 0.5cm
+\quad $ \displaystyle =2+\frac{1}{1+\frac{1}{2+\frac{1}{1+\frac{1}{1+\frac{1}{4+\frac{1}{1+\frac{1}{1+\frac{1}{6+...}}}}}}}}$ 
+\vskip 0.5cm
+\[ 2.71828182845904523536028747135266249775724709369995... \]
+
+\end{frame}
+ 
+\begin{frame}
+\begin{izrek}
+Število $e^2$ je iracionalno.  
+\end{izrek}
+
+\vskip 1cm
+\pause
+
+\begin{izrek}
+Število $e^r$ je iracionalno za vsak $r\in\mathbb{Q}\backslash\{0\}$ .
+\end{izrek}
+\end{frame}
+
+\begin{frame}
+\frametitle{Število $\pi$}
+
+\[ \pi = 3.14159265358979323846264338327950288419716939937510... \]
+\vskip 1cm
+Približki $\frac{22}{7}$, $\frac{355}{113}$ in $\frac{104348}{33215}$.
+
+\end{frame}
+
+\begin{frame}
+\begin{exampleblock}{Primeri}
+\begin{center}
+ $cos(r)$, $sin(r)$, $tan(r)$,...; $r \in \mathbb{Q}\backslash\{0\}$
+\vskip 0.5cm
+ $ln(r)$; $r>0$ in $r\ne 1$
+\end{center}
+\end{exampleblock}
+\end{frame}
+
+\setbeamercovered{transparent}
+\begin{frame}
+\frametitle{}
+
+\begin{izrek}
+Število $\pi^2$ je iracionalno.  
+\end{izrek}
+
+\pause
+\begin{trditev}
+Naj bo $n\ge1$ in $f(x)=\frac{x^n(1-x)^n}{n!}$.
+
+\begin{enumerate}
+\item Funkcija je oblike $\displaystyle f(x)=\frac{1}{n!}\sum_{i=n}^{2n}c_ix^i$, kjer $c_i\in\mathbb{Z}$.
+\pause
+\item Za $0<x<1$ velja $0<f(x)<\frac{1}{n!}$.
+\pause
+\item Vrednosti odvoda $\odvod{k}$ za $x=0$ in $x=1$ sta celi števili za $\forall k\ge0$.
+\end{enumerate}
+
+\end{trditev}
+
+\end{frame}
+\setbeamercovered{invisible}
+
+\begin{frame}
+\begin{exampleblock}{Odprta vprašanja}
+\begin{center}
+$e+\pi$, $\frac{e}{\pi}$, $2^e$, $\pi^e$, $\pi^{\sqrt{2}}$, $\displaystyle \gamma = \lim_{n\to\infty} \big( \sum_{k=1}^{\infty}\frac{1}{k}-ln(n)\big)$,...
+\end{center}
+\end{exampleblock}
+\end{frame}
+
+
+
+\end{document}

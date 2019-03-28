@@ -18,64 +18,116 @@
 \theoremstyle{plain}
 \newtheorem{trditev}{Trditev}
 \newtheorem{izrek}{Izrek}
+\newtheorem{definicija}{Definicija}
 
 \newcommand{\odvod}[1]{f^{({#1})}(x)}
 \newcommand{\pina}[1]{\pi^{#1}}
 
+\makeatletter
+\newcommand{\mathleft}{\@fleqntrue\@mathmargin0pt}
+\newcommand{\mathcenter}{\@fleqnfalse}
+\makeatother
+
+
 \begin{document}
-\title{\textbf{Števili $e^2$ in $\pi^2$ sta iracionalni}}
+\title{\textbf{ŠTEVILI $e^2$ IN $\pi^2$ STA IRACIONALNI}}
 \author{Ema Češek}
 \date{}
 \maketitle
-\thispagestyle{empty} %ni oštevilčeno
-
-\begin{abstract}
-Na kratko o mojem članku.
-\end{abstract}
+%\thispagestyle{empty} ni oštevilčeno
 
 \section*{Iracionalna števila}
-Na splošno o iracionalnosti števil, zgledi, malo zgodovine. Potem omejim na $e$ in $\pi$.
+Množico realnih števil sestavljajo racionalna in iracionalna števila. Racionalna števila so vsa števila, ki jih lahko zapišemo z ulomkom oblike $\frac{a}{b}$, kjer $a\in \mathbb{Z}$ in $b\in \mathbb{Z}\backslash\{0\}$.
+\begin{definicija}
+Realna števila, ki niso racionalna, t.j. $\mathbb{R}\backslash\mathbb{Q}$, imenujemo iracionalna števila.
+\end{definicija}
+Nekaj primerov iracionalnih števil:\ $\sqrt{2}$, $\sqrt{3}$, $\sqrt{6}$, $\sqrt{2}+\sqrt{3}$,  $log_23$, $ln2$, $e$, $\pi$,... Več jih bomo spoznali skozi celoten članek. Njihov decimalni zapis se od racionalnih števil razlikuje v tem, da je neskončen in ni periodičen. Manj znano je definiranje iracionalnih števil s pomočjo razdalj do racionalnih števil. Vsako iracionalno število ima do racionalnih same različne razdalje, medtem ko ima vsako racionalno število $r$ enaki že razdalji do $r+1$ in $r-1$. Racionalnih števil je števno neskončno, množica iracionalnih števil pa ima moč kontinuuma. Je gosta, kar pomeni, da med poljubnima dvema realnima številoma vedno najdemo iracionalno število.
 
-\section*{Iracionalnost števila $e^2$}
-Liouville 1840, podobno za $e^4$
+%Ni še dokazano, da $2^e$, $\pi^e$, $\pi^{\sqrt{2}}$,...
+
+Odkritje obstoja iracionalnih števil pripisujejo Pitagorejcem, torej sega v čas 5.\ stoletja pr.\ n.\ št. Poznali so jih kot 'neizmerljiva' števila (angleško incommensurable). To pomeni, da ne obstaja enota, s katero bi lahko predstavili dve dolžini kot večkratnik le te. Takšen primer bi bili stranica in diagonala enotskega kvadrata. Dolžina diagonale je namreč $\sqrt{2}$. Geometrijski dokaz 'neizmerljivosti' $\sqrt{2}$ je opisan že v Evklidovih Elementih \cite{knjiznica}. Oznaka za koren se pojavi šele v 16.\ stoletju. 
+
+\begin{izrek}
+Število $\sqrt{2}$ je iracionalno.
+\end{izrek}
+\begin{proof}
+Predpostavimo, da je racionalno. Zapišimo ga z okrajšanim ulomkom $\sqrt{2} = \frac{a}{b}$, katerega imenovalec je neničeln. Enakost kvadriramo in pomnožimo z $b^2$:
+\begin{equation}
+\label{eq:koren2}
+2b^2 = a^2.
+\end{equation}
+Ker je leva stran enačbe deljiva z 2, mora biti tudi desna in to je mogoče le, če je $a$ sodo število. Torej $a=2k$, za poljuben $k$. To vstavimo v enačbo \eqref{eq:koren2} in dobimo
+\begin{equation*}
+b^2= 2k^2,
+\end{equation*}
+iz česar sledi, da je tudi $b$ sodo število. To pa je v nasprotju s predpostavko, ker ulomek ni okrajšan.
+\end{proof}
+Dokaz je bil povzet iz \cite{knjiznica}.
+
+Množica iracionalnih števil ni zaprta za osnovne računske operacije seštevanja, odštevanja, množenja in deljenja. Za primer si oglejmo množenje:\ vemo, da je $\sqrt{2}$ iracionalno število, vendar je produkt $\sqrt{2}$ s samim seboj racionalno število. Iz vsakega iracionalnega števila lahko tvorimo novo iracionalno število tako, da ga pomnožimo, mu prištejemo oziroma odštejemo neničelno racionalno število ali ga korenimo. O tem se lahko prepričamo, če zapišemo števila $xr$, $x+r$ in $\sqrt{x}$, kjer $x$ iracionalno in $r$ neničelno racionalno, v obliki ulomka kot racionalno število. Pri vsakem izrazimo $x$ in tako dobimo, da je iracionalno število enako racionalnemu, kar pa seveda ne drži. Če znova vzamemo za primer število $\sqrt{2}$, lahko na ta način tvorimo iracionalna števila $\sqrt{2}\pm 5$, $\frac{1}{\sqrt{2}}$, $-\frac{\sqrt{2}}{7}$,... Splošneje velja, da so števila oblike $\sqrt[n]{a}$, za $a,n\in\mathbb{N}$, ali naravna ali iracionalna \cite{spletnaknjiga}. 
+
+Iracionalna števila lahko aproksimiramo z racionalnimi s pomočjo verižnih ulomkov. Naj bo $x$ iracionalno število, $\frac{a}{b}$ okrajšan ulomek z $b>0$, ki predstavlja racionalni približek, in velja $|x-\frac{a}{b}|<\frac{1}{2b^2}$. Potem je $\frac{a}{b}$ eden od konvergentov verižnega ulomka za $x$.
+
+Poleg delitve na racionalna in iracionalna števila, poznamo tudi delitev na algebraična in transcendentna števila.
+\begin{definicija}
+Število $\alpha$ je algebraično, če obstaja neničeln polinom $f(x)=c_nx^n+\dots+c_1x+c$, kjer $c_i\in\mathbb{Z}$ in $f(\alpha)=0$. Če tak polinom ne obstaja, rečemo, da je število transcendentno.
+\end{definicija}
+Algebraična števila so lahko racionalna ali iracionalna, transcendentna pa so vedno iracionalna. Obstoj transcendentnih je prvič dokazal Liouville leta 1844. Primer algebraičnih iracionalnih števil so števila oblike $\sqrt{a}$, kjer $a$ ni popolni kvadrat, saj so ničle polinoma $x^2-a$. Najbolj znani transcendentni števili sta $e$ in $\pi$.
+
+
+\section*{Števili $e$ in $e^2$}
+
+Število $e$ definiramo kot 
+\begin{equation*}
+e:=\lim_{x\to \infty}\bigg(1+\frac{1}{x}\bigg)^x = 2.71828182845904523536028747135266249775724709369995...
+\end{equation*}
+Predstavimo ga lahko tudi kot neskončno vsoto $ e = \sum_{k=0}^{\infty}\frac{1}{k!}$. Leta 1737 Euler prvi dokaže, da je število $e$ iracionalno \cite{knjiznica}. Njegov dokaz temelji na neskončnih verižnih ulomkih. Število e lahko namreč predstavimo z verižnim ulomkom $[2; 1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, 1,\dots, 1, 2n, 1,\dots]$. Dokaz, da je tudi transcendentno, predstavi Charles Hermite leta 1873 \cite{e}. Posebej si bomo v nadaljevanju ogledali število $e^2$. Leta 1840 Liouville objavi dokaz, da je tudi $e^2$ iracionalno število.
+
+Za nekatera števila, predstavljena kot neskončne vsote, dokazov iracionalnosti še ne poznamo. Za primer lahko vzamemo vsoto $\sum_{k=0}^{\infty}\frac{1}{k!+1}$, ki je definirana zelo podobno kot $e$. 
 
 \begin{izrek}
 Število $e^2$ je iracionalno.
 \end{izrek}
 
 \begin{proof}
-Izrek bomo dokazali s protislovjem. Predpostavimo, da je $e^2$ racionalno število. Torej ga lahko zapišemo v obliki
-\begin{equation*}
-e^2 = \frac{a}{b},
-\end{equation*}
+Predpostavimo, da je $e^2$ racionalno število. Torej ga lahko zapišemo v obliki $e^2 = \frac{a}{b}$,
 kjer je $a \in \mathbb{Z}$ in $b \in \mathbb{N}$. V naslednjem koraku enačbo preoblikujemo v 
 \begin{equation*}
 be = ae^{-1}
 \end{equation*}
 in na obeh straneh enačbe pomnožimo z $n!$, kjer je $n$ sodo število in $n \ge 0$. Dobimo
-
 \begin{equation}
 n!be = n!ae^{-1}.
 \label{eq:osnovna}
 \end{equation}
-
-Ker znamo funkcijo $e^x$ razviti v potenčno vrsto $\displaystyle e^x = \sum_{k=0}^{\infty}\frac{x^k}{k!}$, lahko $e$ in $e^{-1}$ zapišemo z vrstama
+Za funkcijo $e^x$ poznamo razvoj v potenčno vrsto 
+\begin{equation*}
+ e^x = \sum_{k=0}^{\infty}\frac{x^k}{k!}.
+\end{equation*}
+V enačbi \eqref{eq:osnovna} lahko števili $e$ in $e^{-1}$ nadomestimo z vrstama
 \begin{align*}
 e &= 1+\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+\dots \\
-e^{-1}&= 1-\frac{1}{1!}+\frac{1}{2!}-\frac{1}{3!}+\dots 
+e^{-1}&= 1-\frac{1}{1!}+\frac{1}{2!}-\frac{1}{3!}+\dots. 
 \end{align*}
-in ju vstavimo v enačbo \eqref{eq:osnovna}.
 
 Najprej si oglejmo, kaj dobimo na levi strani enačbe:
+\mathleft
+\begin{equation*}
+n!be = n!b \bigg(1+\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+\dots \bigg) 
+\end{equation*}
+\mathcenter
+\begin{multline*}
+=n!b \bigg(1+\frac{1}{1!}+\frac{1}{2!}+\dots+\frac{1}{n!}\bigg) \\
++ n!b \bigg( \frac{1}{(n+1)!}+\frac{1}{(n+2)!}+\frac{1}{(n+3)!}+\dots\bigg)
+\end{multline*}
+\begin{multline*}
+=n!b \bigg(1+\frac{1}{1!}+\frac{1}{2!}+\dots+\frac{1}{n!}\bigg)\\
+ + b \bigg( \frac{1}{n+1}+\frac{1}{(n+1)(n+2)}+\frac{1}{(n+1)(n+2)(n+3)}+\dots\bigg)
+\end{multline*}
+Vsoto smo razbili na dva dela. V prvem delu so členi, ki se pojavijo pred $\frac{1}{n!}$. Ker imajo vsi členi imenovalec manjši od $n!$, pri množenju z $n!$ dobimo cela števila. Torej bo prvi del predstavljal neko celo število. Drugi del, kjer smo vzeli vse nadaljne člene, smo že množili z $n!$. Ocenimo:
 \begin{align*}
-n!be &= n!b \bigg(1+\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+\dots \bigg) \\
-&=n!b \bigg(1+\frac{1}{1!}+\frac{1}{2!}+\dots+\frac{1}{n!}\bigg) + n!b \bigg( \frac{1}{(n+1)!}+\frac{1}{(n+2)!}+\frac{1}{(n+3)!}+\dots\bigg)\\
-&=n!b \bigg(1+\frac{1}{1!}+\frac{1}{2!}+\dots+\frac{1}{n!}\bigg) + b \bigg( \frac{1}{(n+1)}+\frac{1}{(n+1)(n+2)}+\frac{1}{(n+1)(n+2)(n+3)}+\dots\bigg)
-\end{align*}
-Vsoto smo razbili na dva dela. V prvem delu so členi, ki se pojavijo pred $\frac{1}{n!}$. Ker imajo vsi členi imenovalec manjši od $n!$, pri množenju z $n!$ dobimo cela števila. Torej bo prvi del predstavljal neko celo število. Drugi del, kjer smo vzeli vse nadaljne člene, smo že množili z $n!$. Ocenimo
-\begin{align*}
-\frac{b}{n+1} &< \bigg( \frac{b}{(n+1)}+\frac{b}{(n+1)(n+2)}+\frac{b}{(n+1)(n+2)(n+3)}+\dots\bigg) \\
-&< \bigg( \frac{b}{(n+1)}+\frac{b}{(n+1)^2}+\frac{b}{(n+1)^3}+\dots\bigg) \\
+\frac{b}{n+1} &<\frac{b}{(n+1)}+\frac{b}{(n+1)(n+2)}+\frac{b}{(n+1)(n+2)(n+3)}+\dots \\
+&<  \frac{b}{(n+1)}+\frac{b}{(n+1)^2}+\frac{b}{(n+1)^3}+\dots\\
 &= \frac{b}{n+1} \bigg(1+\frac{1}{n+1}+\frac{1}{(n+1)^2}+ \dots\bigg) \\
 &= \frac{\frac{b}{n+1}}{1-\frac{1}{n+1}}\\
 &= \frac{b}{n}.
@@ -83,40 +135,57 @@ Vsoto smo razbili na dva dela. V prvem delu so členi, ki se pojavijo pred $\fra
 Uporabili smo formulo za računanje vsote neskončne geometrijske vrste. Dobimo oceno, da je drugi del večji od $\frac{b}{n+1}$ in manjši od $\frac{b}{n}$. Za dovolj velik n, to zagotovo ne bo celo število.
 
 Podobno obravnavamo desno stran enačbe \eqref{eq:osnovna}:
-\begin{align*}
-n!ae^{-1} &= n!a \bigg(1-\frac{1}{1!}+\frac{1}{2!}-\frac{1}{3!}+\dots \bigg) \\
-&=n!a \bigg(\frac{1}{2!}+\dots+(-1)^n\frac{1}{n!}\bigg) + n!a (-1)^{n+1} \bigg( \frac{1}{(n+1)!}-\frac{1}{(n+2)!}+\frac{1}{(n+3)!}-\dots\bigg)\\
-&=n!a \bigg(\frac{1}{2!}+\dots+(-1)^n\frac{1}{n!}\bigg) + a(-1)^{n+1} \bigg( \frac{1}{(n+1)}-\frac{1}{(n+1)(n+2)}+\dots\bigg)
-\end{align*}
+\mathleft
+\begin{equation*}
+n!ae^{-1} = n!a \bigg(1-\frac{1}{1!}+\frac{1}{2!}-\frac{1}{3!}+\dots \bigg) 
+\end{equation*}
+\mathcenter
+\begin{multline*}
+=n!a \bigg(\frac{1}{2!}+\dots+(-1)^n\frac{1}{n!}\bigg)\\
++ n!a (-1)^{n+1} \bigg( \frac{1}{(n+1)!}-\frac{1}{(n+2)!}+\frac{1}{(n+3)!}-\dots\bigg)
+\end{multline*}
+\begin{multline*}
+=n!a \bigg(\frac{1}{2!}+\dots+(-1)^n\frac{1}{n!}\bigg)\\
++ a(-1)^{n+1} \bigg( \frac{1}{n+1}-\frac{1}{(n+1)(n+2)}+\dots\bigg)
+\end{multline*}
 Prvi del bo znova neko celo število. Spomnimo, da smo na začetku predpostavili, da je $n$ sodo. Torej bo drugi del enak
 \begin{equation*}
--a \bigg( \frac{1}{(n+1)}-\frac{1}{(n+1)(n+2)}+\frac{1}{(n+1)(n+2)(n+3)}+\dots\bigg).
+-a \bigg( \frac{1}{n+1}-\frac{1}{(n+1)(n+2)}+\frac{1}{(n+1)(n+2)(n+3)}-\dots\bigg).
 \end{equation*}
-Znova želimo ta del oceniti. Na naslednjih neenakostih uporabimo formulo za vsoto neskončne geometrijske vrste:
+Znova želimo ta del oceniti. Na naslednji neenakosti uporabimo formulo za vsoto neskončne geometrijske vrste:
 \begin{align*}
-&-a \bigg( \frac{1}{(n+1)}+\frac{1}{(n+1)^2}+\frac{1}{(n+1)^3}+\dots\bigg) \\
-&\quad < -a \bigg( \frac{1}{(n+1)}-\frac{1}{(n+1)(n+2)}+\frac{1}{(n+1)(n+2)(n+3)}-\dots\bigg) \\
-&\quad \quad< -a \bigg( \frac{1}{(n+1)}-\frac{1}{(n+1)^2}-\frac{1}{(n+1)^3}-\dots\bigg) \\
-&\quad \quad= - \frac{a}{(n+1)}\bigg(1 -\bigg(\frac{1}{(n+1)}+\frac{1}{(n+1)^2}+\dots\bigg)\bigg)
+& -a \bigg( \frac{1}{n+1}-\frac{1}{(n+1)(n+2)}+\frac{1}{(n+1)(n+2)(n+3)}-\dots\bigg) \\
+&< -a \bigg( \frac{1}{n+1}-\frac{1}{(n+1)^2}-\frac{1}{(n+1)^3}-\dots\bigg) \\
+&= - \frac{a}{n+1}\bigg(1 -\bigg(\frac{1}{n+1}+\frac{1}{(n+1)^2}+\dots\bigg)\bigg) \\
+&= - \frac{a}{n+1}\bigg(1 - \frac{1}{n}\bigg)
 \end{align*}
-Ocenimo, da je drugi del večji od $-\frac{a}{n}$ in manjši od $-\frac{a}{n+1}$. Torej bi v enačbi \eqref{eq:osnovna} veljalo, da je leva stran malo večja od celega števila, desna stran pa malo manjša. Vendar enačaj v tem primeru ne velja. 
+Drugi del je večji od $-\frac{a}{n}$ in za poljubno velik $n$ manjši od 0. Torej bi v enačbi \eqref{eq:osnovna} veljalo, da je za velike $n$ leva stran poljubno malo večja od celega števila, desna stran pa poljubno malo manjša. Vendar enačaj v tem primeru ne velja. Protislovje s predpostavko, da je $e^2$ racionalno število.
 \end{proof}
 
-Dokaz je bil povzet iz \cite{dokazi}. Splošneje velja naslednji izrek.
+Dokaz je bil povzet iz \cite{dokazi}. Podobno dokaz za $e$ in $e^4$. Splošneje velja naslednji izrek:
 
 \begin{izrek}
-Število $e^r$ je iracionalno za vsak $r\in\mathbb{Q}$ .
+Število $e^r$ je iracionalno za vsak neničeln $r\in\mathbb{Q}$ .
 \end{izrek}
 
-Izreka ne bomo dokazali. Dokaže se z uporabo idej, ki jih bomo navedli v dokazu iracionalnosti števila $\pina{2}$.
+Izreka ne bomo dokazali. Uporabi se ideje, ki jih bomo navedli, ko bomo dokazovali, da je število $\pina{2}$ iracionalno. 
 
-\section*{Iracionalnost števila $\pi^2$}
+\section*{Števili $\pi$ in $\pi^2$}
+Število $\pi$ je definirano kot razmerje obsega in premera kroga. 
+\begin{equation*}
+\pi = 3.14159265358979323846264338327950288419716939937510...
+\end{equation*}
+Znani približki števila $\pi$ so $\frac{22}{7}$, $\frac{355}{113}$ in $\frac{104348}{33215}$.
+
+Leta 1761 je Johann Lambert dokazal, da je $\pi$ iracionalno število. Natančneje, dokazal je, da je za vsak $r$, ki je neničelno racionalno število, $tan(r)$ iracionalno število. Transcendentnost števila $\pi$ dokaže Lindemann leta 1882. Naš dokaz iracionalnosti števila $\pi^2$ bo temeljil na dokazu Ivana Nivena iz leta 1947 in uporabi Nivenovega polinoma. Če dokažemo, da je $\pi^2$ iracionalno sledi, da je $\pi$ iracionalno. Splošneje velja, da je $\pi^n$ iracionalno za vsako naravno število $n$ \cite{iracionalna}. Niven je uspel dokazati iracionalnost $cos(r)$ za vsako neničelno racionalno število $r$. Posledično sta iracionalna tudi $sin(r)$ in $tan(r)$ za enake $r$ ter $ln(r)$ ob pogoju, da $r>0$ in $r\ne 1$. Prav tako so za neničelno racionalno število irracionalne vrednosti inverznih trigonometričnih in hiperboličnih funkcij \cite{knjiznica}. Število $log_ax$ je iracionalno, če sta $a$ in $x$ naravni števili ter ima eno izmed njiju praštevilski faktor, ki ga druga nima.
+
+Za razumevanje dokaza o iracionalnosti števila $\pi^2$ je pomembna naslednja trditev:
 
 \begin{trditev}
 \label{tr:funkcijaf}
 Naj bo $n\ge1$ in $f(x)=\frac{x^n(1-x)^n}{n!}$.
 \begin{enumerate}
-\item Funkcija je oblike $\displaystyle f(x)=\frac{1}{n!}\sum_{i=n}^{2n}c_ix^i$, kjer $c_i\in\mathbb{Z}$
+\item Funkcija je oblike $\displaystyle f(x)=\frac{1}{n!}\sum_{i=n}^{2n}c_ix^i$, kjer $c_i\in\mathbb{Z}$.
 \item Za $0<x<1$ velja $0<f(x)<\frac{1}{n!}$.
 \item Vrednosti odvoda $\odvod{k}$ za $x=0$ in $x=1$ sta celi števili za $\forall k\ge0$.
 \end{enumerate}
@@ -128,9 +197,9 @@ Naj bo $n\ge1$ in $f(x)=\frac{x^n(1-x)^n}{n!}$.
 \begin{equation*}
 f(x) = \frac{x^n}{n!}\sum_{k=0}^{n}\binom{n}{k}(-1)^kx^k
 \end{equation*}
-iz katerega je razvidno, da se $x$ pojavlja v potencah $x^n,\dots, x^{2n}$.
-\item
-\item Najprej si oglejmo vrednosti $\odvod{k}$. Za $k=0,\dots,n-1$ bo v odvodu še vedno nastopal $x$ s pozitivno potenco, torej bo $f^{(k)}(0)=0$. Za $k=2n+1,\dots$ bo vrednost odvoda prav tako 0, ker ...
+iz katerega je razvidno, da se $x$ pojavlja v potencah $x^n,\dots, x^{2n}$ in da so koeficienti cela števila.
+\item Neenakost $f(x)>0$ očitno velja, saj za $0<x<1$ vrednosti $x^n$ in $(1-x)^n$ pozitivni. Za drugo enakost mora veljati $x^n(1-x)^n<1$. To drži, ker $x\in(0,1)$.
+\item Najprej si oglejmo vrednosti $\odvod{k}$. Za $k=0,\dots,n-1$ bo v odvodu še vednov vsakem členu nastopal $x$ s pozitivno potenco, torej bo $f^{(k)}(0)=0$. Za $k=2n+1,\dots$ bo vrednost odvoda prav tako 0, ker odvajamo konstatno funkcijo. Za $k=n,\dots,2n$ bo $f^{(k)}(0) = \frac{k!}{n!}c_k$, ki je celo število. Iz enakosti $f(x)=f(1-x)$ sledi $\odvod{k}= (-1)^k f^{(k)}(1-x)$. Torej $f^{(k)}(1)= (-1)^k f^{(k)}(0)$, ki pa vemo, da je celo število.
 \end{enumerate}
 \end{proof}
 
@@ -152,17 +221,19 @@ dobimo zvezo
 F''(x)=-F(x)\pina{2}+b^n\pina{2n+2}f(x).
 \label{eq:zveza}
 \end{equation}
-Po trditvi...
+V $F(x)$ nastopajo členi oblike $b^n\pina{2n-2k}$, ki jih z upoštevanjem osnovne predpostavke preoblikujemo v zapis, iz katerega je razvidno, da so členi cela števila:
+\begin{equation*}
+ b^n\pina{2(n-k)} = b^n\bigg(\frac{a}{b}\bigg)^{n-k} = a^{n-k}b^k.
+\end{equation*}
+Po tretji točki trditve \ref{tr:funkcijaf} in zgornji ugotovitvi sledi, da sta vrednosti $F(0)$ in $F(1)$ celi števili.
 
-Izračunamo odvod
+V naslednjem koraku izračunamo odvod, pri čemer upoštevamo enačbo \eqref{eq:zveza} ter osnovno predpostavko:
 \begin{align*}
 \frac{d}{dx}&\big( F'(x)sin(\pi x)-\pi F(x)cos(\pi x) \big) \\
-&=F''(x)sin(\pi x)+\pi F'(x)cos(\pi x)-\pi F'(x)cos(\pi x)-\pina{2} F(x)sin(\pi x) \\
-&=\big( F''(x)-\pina{2} F(x) \big) sin(\pi x) ~ *
-\end{align*}
-in upoštevamo enačbo \eqref{eq:zveza} ter zapis $\pina{2}$ kot racionalnega števila:
-\begin{align*}
-* &= b^n\pina{2n+2}f(x)sin(\pi x) \\
+&=F''(x)sin(\pi x)+\pi F'(x)cos(\pi x)-\pi F'(x)cos(\pi x)+\pina{2} F(x)sin(\pi x) \\
+&=\big( F''(x)+\pina{2} F(x) \big) sin(\pi x) \\
+&= b^n\pina{2n+2}f(x)sin(\pi x) \\
+&=b^n\bigg(\frac{a}{b}\bigg)^n\pina{2}f(x)sin(\pi x) \\
 &=a^n\pina{2}f(x)sin(\pi x).
 \end{align*}
 Definiramo 
@@ -173,9 +244,15 @@ N:&=\pi \int_{0}^{1}a^nf(x)sin(\pi x)dx \\
 &=\frac{1}{\pi} F'(1)sin(\pi)- F(1)cos(\pi)-\frac{1}{\pi} F'(0)sin(0)+F(0)cos(0)\\
 &=F(1)+F(0),
 \end{align*}
-ki bo tako celo število. Iz trditve vemo, da za $0<x<1$ velja $f(x)>0$. 
+ki bo tako celo število. 
+
+Ocenimo velikost $N$. Iz druge točke trditve \ref{tr:funkcijaf} vemo, da za $0<x<1$ velja $0<f(x)<\frac{1}{n!}$. Na tem intervalu bo tudi $0<sin(\pi x)<1$. Torej bo $N$ integral pozitivne funkcije z vrednostima 0 v mejah in zato pozitiven. Velja naslednja neenakost
+\begin{equation*}
+N =  \pi a^n\int_{0}^{1}f(x)sin(\pi x)dx < \pi a^n\frac{1}{n!} <1,
+\end{equation*}
+če izberemo dovolj velik $n$. Dobilo smo oceno $0<N<1$, hkrati pa vemo, da je $N$ celo število. Protislovje.
 \end{proof}
-Dokaz je bil povzet iz \cite{dokazi}.
+Dokaz je bil povzet iz \cite{dokazi}. Kljub temu, da sta $e$ in $\pi$ iracionalna, pa ostaja vprašanje iracionalnosti odprto še pri številih $e+\pi$, $\frac{e}{\pi}$, $2^e$, $\pi^e$, $\pi^{\sqrt{2}}$,... Enako velja za znano Euler-Mascheronijevo konstanto $\gamma = \lim_{n\to\infty} \big( \sum_{k=1}^{\infty}\frac{1}{k}-ln(n)\big)$ \cite{e}\cite{iracionalna}.
 
 \bibliographystyle{plain}
 \bibliography{Literatura}
